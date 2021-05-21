@@ -1,0 +1,19 @@
+{
+    "name": "Duck.Forms.Tests",
+    "references": [
+        "GUID:3ccb158d1f7a14482916322a7272767a"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": []
+}
