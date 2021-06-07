@@ -1,11 +1,11 @@
-﻿﻿using System.Collections.Generic;
- using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
  namespace DUCK.Forms
  {
-     public class FocusManager : MonoBehaviour
+     public class SelectableFocusSwitcher : MonoBehaviour
      {
          [Tooltip("Will add all active selectable UI elements to the list on awake, you cannot decide the order.")]
          [SerializeField]
@@ -13,18 +13,13 @@ using UnityEngine.UI;
 
          [Tooltip("Customise the order of which selectables will be focused on pressing tab.")] [SerializeField]
          private List<Selectable> selectables;
-
          private EventSystem eventSystem;
 
          void Awake()
          {
              selectables = new List<Selectable>();
              eventSystem = FindObjectOfType<EventSystem>();
-             if (FindObjectsOfType<FocusManager>().Length > 0)
-             {
-                 Debug.LogWarning("More than one focus manager present in scene");
-             }
-
+             
              if (autoDetectSelectables)
              {
                  FindActiveSelectionIndex();
@@ -36,23 +31,22 @@ using UnityEngine.UI;
              Selectable[] sceneSelectables = FindObjectsOfType<Selectable>();
              for (int i = 0; i < sceneSelectables.Length; i++)
              {
-                 if (!selectables.Contains(sceneSelectables[i]))
-                 {
-                     AddSelectable(sceneSelectables[i]);
-                 }
+                 AddSelectable(sceneSelectables[i]);
              }
          }
 
          public void AddSelectable(Selectable selectable)
          {
-             selectables.Add(selectable);
+             if (!selectables.Contains(sceneSelectables[i]))
+             {
+                 selectables.Add(selectable);
+             }
          }
 
          void Update()
          {
              if (Input.GetKeyDown(KeyCode.Tab))
              {
-                 Debug.Log("Tab key down");
                  OnTab();
              }
          }
@@ -91,8 +85,7 @@ using UnityEngine.UI;
              GameObject highlightedObject = eventSystem.currentSelectedGameObject;
              for (int i = 0; i < selectables.Count; i++)
              {
-                 if (highlightedObject == selectables[i].gameObject)
-                     return i;
+                 if (highlightedObject == selectables[i].gameObject) return i;
              }
 
              return -1;
