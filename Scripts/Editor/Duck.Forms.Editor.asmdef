@@ -1,0 +1,17 @@
+{
+    "name": "Duck.Forms.Editor",
+    "references": [
+        "GUID:3ccb158d1f7a14482916322a7272767a"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
