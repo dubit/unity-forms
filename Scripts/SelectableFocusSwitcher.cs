@@ -17,7 +17,9 @@ using UnityEngine.UI;
 
          void Awake()
          {
+             if(selectables == null){
              selectables = new List<Selectable>();
+             }
              eventSystem = FindObjectOfType<EventSystem>();
              
              if (autoDetectSelectables)
@@ -37,7 +39,7 @@ using UnityEngine.UI;
 
          public void AddSelectable(Selectable selectable)
          {
-             if (!selectables.Contains(sceneSelectables[i]))
+             if (!selectables.Contains(selectable))
              {
                  selectables.Add(selectable);
              }
